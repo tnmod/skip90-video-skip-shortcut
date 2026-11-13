@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skip90</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="icon" href="icons/icon-16.png">
+  <script src="config.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <main>
+    <form id="settings" novalidate>
+      <header class="header">
+        <img src="icons/logo.svg" alt="" width="36" height="36">
+        <div class="identity">
+          <h1>Skip90</h1>
+          <p id="current-state" class="current-state">Loading settings</p>
+        </div>
+        <label class="switch">
+          <input id="enabled" name="enabled" type="checkbox" role="switch" aria-label="Enable shortcuts" disabled>
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </header>
+
+      <fieldset id="settings-fields" class="settings-fields" disabled>
+        <legend>Skip shortcuts</legend>
+        <ul id="shortcuts" class="shortcut-list" role="list"></ul>
+        <p id="empty-list" class="empty-list" hidden>Add a duration and give it a key.</p>
+        <button id="add-shortcut" class="add" type="button">+ Add shortcut</button>
+        <button id="save" class="save" type="submit">Save settings</button>
+      </fieldset>
+      <p id="feedback" class="feedback" role="status"></p>
+    </form>
+  </main>
+  <template id="shortcut-row">
+    <li class="shortcut-row">
+      <label class="time-field">
+        <span>Min</span>
+        <input class="minutes" aria-label="Minutes" type="text" inputmode="numeric" pattern="[0-9]+" autocomplete="off" spellcheck="false" required>
+      </label>
+      <label class="time-field">
+        <span>Sec</span>
+        <input class="seconds" aria-label="Seconds" type="text" inputmode="numeric" pattern="[0-9]+" autocomplete="off" spellcheck="false" required>
+      </label>
+      <div class="key-field">
+        <span>Key</span>
+        <button class="shortcut-key" type="button">Set key</button>
+      </div>
+      <button class="remove" type="button" aria-label="Remove shortcut" title="Remove shortcut">×</button>
+    </li>
+  </template>
+</body>
+</html>

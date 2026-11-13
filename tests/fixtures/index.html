@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skip90 test fixture</title>
+  <link rel="stylesheet" href="fixture.css">
+  <script src="fixture.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Skip90 test fixture</h1>
+    <nav aria-label="Test layouts">
+      <a href="?layout=main">Main video</a>
+      <a href="?layout=pair">Two videos</a>
+      <a href="?layout=same">Same-origin frame</a>
+      <a href="?layout=cross">Cross-origin frame</a>
+      <a href="?layout=frames">Multiple frames</a>
+      <a href="?layout=srcdoc">Srcdoc frame</a>
+    </nav>
+  </header>
+  <main>
+    <div id="editors">
+      <button id="fixture-target" type="button">Focus page</button>
+      <label>Input <input id="text-input"></label>
+      <label>Textarea <textarea id="textarea" rows="1"></textarea></label>
+      <label>Select <select id="select"><option>Example</option></select></label>
+      <div id="editable" contenteditable="true" aria-label="Editable region">Editable text</div>
+      <div id="textbox" role="textbox" tabindex="0" aria-label="Custom textbox">Custom textbox</div>
+      <div id="shadow-editor"></div>
+      <div id="closed-shadow-editor"></div>
+    </div>
+    <div id="players"></div>
+  </main>
+  <template id="player-template">
+    <section class="player" aria-label="Test video player">
+      <div class="viewport">
+        <video src="sample.webm" width="256" height="144" preload="auto" controls muted playsinline></video>
+        <button class="overlay-control" type="button">Player overlay control</button>
+      </div>
+      <div class="controls">
+        <button class="container-fullscreen" type="button">Fullscreen container</button>
+        <button class="video-fullscreen" type="button">Fullscreen video</button>
+      </div>
+    </section>
+  </template>
+</body>
+</html>

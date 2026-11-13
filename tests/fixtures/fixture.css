@@ -1,0 +1,94 @@
+html {
+  font-family: system-ui, sans-serif;
+  color: #e7efff;
+  background: #10172a;
+}
+
+body {
+  margin: 16px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+nav, #editors, #players, .controls {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+a {
+  color: #b7d6ff;
+}
+
+#editors {
+  margin: 12px 0;
+}
+
+input, textarea, select {
+  width: 6em;
+  font: inherit;
+}
+
+[contenteditable], [role="textbox"] {
+  padding: 2px 5px;
+  border: 1px solid #b7d6ff;
+}
+
+.player {
+  width: min(100%, 536px);
+}
+
+.player.small {
+  width: min(100%, 312px);
+}
+
+.viewport {
+  position: relative;
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.overlay-control {
+  position: absolute;
+  inset: 10px auto auto 10px;
+}
+
+.controls {
+  padding: 6px 0;
+}
+
+.player:fullscreen {
+  background: #111;
+}
+
+.player:fullscreen video {
+  max-height: calc(100vh - 40px);
+}
+
+iframe {
+  width: min(100%, 396px);
+  height: 282px;
+  border: 1px solid #7393bc;
+}
+
+body.child {
+  margin: 8px;
+}
+
+.child header, .child #editors > :not(#fixture-target) {
+  display: none;
+}
+
+.child #editors {
+  margin: 0 0 6px;
+}
