@@ -1,43 +1,45 @@
-# Skip90
+<div align="center">
+  <img src="store/small-promo.png" alt="Biểu tượng tua nhanh của Skip90 trên thanh tiến trình video" width="330">
+  <h1>Skip90</h1>
+  <p>Tua tiến video HTML5 bằng một phím trên Google Chrome.</p>
+</div>
 
-Skip90 tua tiến video HTML5 bằng các phím tùy chỉnh. Mỗi phím có một thời lượng riêng. Mặc định, phím **S** tua **90 giây**. Tiện ích chọn một video ưu tiên trong tab và hiển thị thời lượng thực tế đã tua. Cài đặt được lưu cục bộ trong Chrome.
+Mặc định, nhấn **S** để tua tiến **90 giây**. Bạn có thể gán các phím từ **A** đến **Z** cho những khoảng tua khác nhau, chẳng hạn **A** để tua 10 giây và **B** để tua 20 giây. Sau mỗi lần tua thành công, video hiển thị nhanh thời lượng thực tế đã tua, ví dụ **+1:30**.
 
-## Cài đặt
+![Popup Skip90 với ba phím tắt A, B và C tương ứng 10, 20 và 30 giây](store/popup-screenshot.png)
 
-1. Dùng Google Chrome 119 trở lên. Tải và giải nén [Skip90-0.3.0.zip](dist/Skip90-0.3.0.zip) hoặc dùng trực tiếp thư mục repo.
-2. Mở `chrome://extensions` và bật **Developer mode**.
-3. Chọn **Load unpacked**, rồi chọn thư mục chứa `manifest.json`.
-4. Tải lại các trang video đã mở trước khi cài. Có thể ghim Skip90 vào thanh công cụ để mở popup nhanh.
+## Cài đặt từ GitHub
 
-[Hướng dẫn Load unpacked của Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
+Yêu cầu **Google Chrome 119 trở lên**.
 
-Khi nâng cấp bản unpacked, cập nhật file trong thư mục đã nạp, bấm **Reload** trên thẻ Skip90 ở `chrome://extensions` rồi tải lại các trang video đang mở. Dùng lại cùng thư mục để Chrome giữ cấu hình của bản cũ.
+1. Ở đầu trang repository, chọn **Code → Download ZIP**, rồi giải nén. Nếu đã clone repository, dùng thư mục mã nguồn trên máy.
+2. Mở `chrome://extensions` trong Chrome và bật **Developer mode** (Chế độ dành cho nhà phát triển).
+3. Chọn **Load unpacked** (Tải tiện ích đã giải nén), rồi chọn thư mục chứa `manifest.json`.
+4. Tải lại các tab video đang mở. Bạn có thể ghim Skip90 từ menu **Tiện ích** trên thanh công cụ để mở phần cài đặt nhanh hơn.
 
 ## Sử dụng
 
-- Mở một trang có video HTML5, đặt focus trên trang và nhấn **S**. Khi gần cuối, Skip90 tua đến điểm hợp lệ xa nhất trong thời lượng đã chọn.
-- Sau khi tua thành công, nửa phải của video hiện **NEXT** và thời lượng thực tế, ví dụ **+1:30**. Overlay tự biến mất và vẫn cho phép bấm các nút của trình phát.
-- Mở popup Skip90 và chọn **Add shortcut**. Nhập phút và giây trên từng dòng. Phút là số nguyên từ 0 trở lên, giây từ 0 đến 59 và tổng ít nhất 1 giây.
-- Bấm **Set key**, rồi nhấn một chữ cái từ **A** đến **Z**. Ví dụ, tạo ba dòng cho **A → 10 giây**, **B → 20 giây** và **C → 30 giây**. Mỗi phím chỉ dùng cho một dòng.
-- Bấm phím đang hiển thị để gán lại hoặc bấm **×** để xóa dòng. Chọn **Save settings** để áp dụng ngay trên các tab đã nạp Skip90.
-- Dùng công tắc **Enable shortcuts** rồi bấm **Save settings** để bật hoặc tắt cả danh sách. Cấu hình một phím từ 0.1.0 xuất hiện thành một dòng sau khi nâng cấp.
+Mở một trang có video, bấm vào trang rồi nhấn **S**. Nếu tab có nhiều video, hãy bấm vào trình phát bạn muốn tua trước khi nhấn phím. Skip90 ưu tiên video đủ điều kiện đang ở chế độ toàn màn hình.
 
-## Xử lý sự cố
+Để thêm hoặc đổi phím tắt, mở popup Skip90 trên thanh công cụ.
 
-- Nếu phím tắt không phản hồi, kiểm tra trạng thái **Shortcuts on**, chữ cái đã lưu, quyền truy cập trang của tiện ích và focus của tab. Skip90 bỏ qua phím khi đang nhập liệu, dùng IME, giữ phím hoặc kèm phím bổ trợ.
-- Nếu website cũng dùng chữ cái đó, chọn một chữ cái khác. Skip90 giữ luồng sự kiện cho website, vì vậy shortcut riêng của website vẫn có thể phản hồi.
-- Nếu có nhiều video, bấm vào video hoặc controls của trình phát cần tua rồi nhấn phím. Video fullscreen đủ điều kiện được ưu tiên trước.
-- Nếu video chưa sẵn sàng, không còn điểm seek phía trước hoặc trình phát chặn seek, Skip90 bỏ qua thao tác và không hiện overlay thành công.
+1. Chọn **+ Add shortcut** và nhập thời lượng vào **Min** và **Sec**. Ô **Sec** nhận giá trị từ 0 đến 59 và tổng thời lượng phải ít nhất 1 giây.
+2. Chọn **Set key**, rồi nhấn một chữ cái từ **A** đến **Z**. Mỗi chữ cái chỉ được gán một lần.
+3. Chọn **Save settings** để áp dụng. Bạn có thể bấm phím đã gán để đổi, bấm **×** để xóa hoặc dùng công tắc ở đầu popup để bật hoặc tắt toàn bộ phím tắt. Chọn **Save settings** sau khi chỉnh.
 
-## Phạm vi và quyền riêng tư
+## Tương thích
 
-Skip90 xử lý video HTML5 trong các trang và iframe HTTP/HTTPS mà Chrome cho phép tiện ích truy cập. Trang nội bộ Chrome, Chrome Web Store và các frame bị chặn bởi chính sách trình duyệt nằm ngoài phạm vi. Hỗ trợ video live phụ thuộc vào vùng DVR mà trình phát cung cấp. Các website streaming cụ thể có thể dùng logic phím tắt hoặc cơ chế phát riêng.
+Skip90 hoạt động với video HTML5 trên các trang HTTP/HTTPS mà Chrome cho phép tiện ích truy cập, kể cả video nhúng trong iframe. Video trực tiếp chỉ tua được trong vùng thời gian mà trình phát cho phép. Với video gần kết thúc, khoảng tua thực tế có thể ngắn hơn cài đặt.
 
-Quyền `storage` lưu trạng thái bật/tắt và danh sách phím cùng thời lượng. Phạm vi truy cập HTTP/HTTPS giúp nhận phím, tìm video và tua trong các frame đủ điều kiện, kể cả iframe khác nguồn. Skip90 không gửi dữ liệu ra máy chủ hoặc lưu lịch sử xem.
+Nếu phím tắt không phản hồi, hãy kiểm tra trạng thái **Shortcuts on**, quyền truy cập trang của Skip90 và xem con trỏ có đang ở trong ô nhập liệu hay không. Nhấn phím chữ một lần, không kèm phím bổ trợ. Nếu trang cũng dùng phím đó, hãy gán một chữ cái khác trong Skip90.
 
-## Tài liệu
+## Quyền riêng tư
 
-- [Kiến trúc và message protocol](docs/architecture.md)
+Skip90 dùng quyền `storage` để lưu trạng thái bật/tắt và danh sách phím tắt trên thiết bị. Quyền truy cập trang HTTP/HTTPS cho phép tiện ích nhận phím và tìm video cần tua, kể cả khi trình phát được nhúng từ một trang khác. Skip90 không lưu lịch sử xem hoặc gửi dữ liệu đến máy chủ.
+
+## Tài liệu phát triển
+
+- [Kiến trúc và cơ chế gửi thông điệp](docs/architecture.md)
 - [Kế hoạch và kết quả kiểm thử](docs/test-plan.md)
 - [Ghi chú triển khai](docs/implementation-notes.md)
-- [Nội dung và tài nguyên Chrome Web Store](CHROMEWEBSTORE.md)
+- [Nội dung giới thiệu trên Chrome Web Store](CHROMEWEBSTORE.md)
