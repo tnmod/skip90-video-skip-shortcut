@@ -1,0 +1,85 @@
+[data-skip90-overlay]:not([popover]),
+[data-skip90-overlay]:popover-open {
+  all: initial !important;
+  position: fixed !important;
+  inset: var(--skip90-top) auto auto var(--skip90-left) !important;
+  z-index: 2147483647 !important;
+  display: block !important;
+  inline-size: var(--skip90-width) !important;
+  block-size: var(--skip90-height) !important;
+  overflow: hidden !important;
+  container-type: size !important;
+  color: #fff !important;
+  font: 700 16px / 1.15 system-ui, sans-serif !important;
+  direction: ltr !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+[data-skip90-overlay]::backdrop {
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+[data-skip90-overlay]::part(surface) {
+  position: absolute;
+  inset: 0;
+}
+
+[data-skip90-overlay]::part(scrim) {
+  position: absolute;
+  inset: 0 0 0 auto;
+  inline-size: 54%;
+  border-radius: 70% 0 0 70% / 52% 0 0 52%;
+  background: linear-gradient(90deg, rgb(20 15 37 / 16%), rgb(20 15 37 / 64%));
+}
+
+[data-skip90-overlay]::part(indicator) {
+  position: absolute;
+  inset: 0 3% 0 51%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: clamp(2px, 1.3cqh, 8px);
+  text-align: center;
+  text-shadow: 0 1px 5px #120d21;
+}
+
+[data-skip90-overlay]::part(arrow) {
+  display: flex;
+  gap: 2px;
+  font-size: clamp(10px, min(4cqw, 9cqh), 24px);
+}
+
+[data-skip90-overlay]::part(arrow)::before,
+[data-skip90-overlay]::part(arrow)::after {
+  content: "";
+  inline-size: .65em;
+  block-size: .76em;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  filter: drop-shadow(0 1px 3px rgb(18 13 33 / 70%));
+}
+
+[data-skip90-overlay]::part(label) {
+  font-size: clamp(8px, min(2.7cqw, 7cqh), 13px);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+[data-skip90-overlay]::part(duration) {
+  font-size: clamp(12px, min(5.5cqw, 12cqh), 42px);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-skip90-overlay]::part(surface) {
+    animation: skip90-overlay-fade var(--skip90-lifetime) ease both;
+  }
+}
+
+@keyframes skip90-overlay-fade {
+  0%, 100% { opacity: 0; }
+  12%, 76% { opacity: 1; }
+}
